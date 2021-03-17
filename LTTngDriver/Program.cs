@@ -35,10 +35,15 @@ namespace LTTngDriver
                 return false;
             }
 
+            // Debug
+            //Console.ReadLine();
+
             //
             // Create our runtime environment, enabling cookers and
             // adding inputs.
             //
+
+            Console.WriteLine($"ExtensionDirectory:{parsed.ExtensionDirectory}");
 
             var runtime = Engine.Create(
                 new EngineCreateInfo
@@ -50,6 +55,7 @@ namespace LTTngDriver
             Debug.Assert(parsed.CtfInput.Count > 0);
             foreach (var ctf in parsed.CtfInput.Distinct())
             {
+                Console.WriteLine($"CTF Path:{ctf}");
                 runtime.AddFile(ctf);
             }
 
